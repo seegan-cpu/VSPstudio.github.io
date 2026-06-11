@@ -476,6 +476,15 @@
       btn.disabled = true;
       btn.textContent = 'TRANSMITTING DATA...';
 
+      // Send data to Google Sheets
+      var SHEET_URL = 'https://script.google.com/macros/s/AKfycbzh2sWgFsnqCayeccGgxCY3-fAz-zwU_5KjJxY507DixKnVbPPezm5Rw2yhNKmhmgd0/exec';
+      fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, phone: phone, email: email })
+      }).catch(function(err) { console.error('Sheet error:', err); });
+
       // Fire Meta Pixel Lead event on form submit
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead');
