@@ -169,10 +169,10 @@
     /* MOBILE */
     @media (max-width: 900px) {
       header { padding: 0 20px; }
-      .page-wrap { grid-template-columns: 1fr; min-height: unset; }
-      .left-side { display: none; }
-      .right-side { padding: 32px 20px 40px; }
-      .mobile-hero { display: block; margin-bottom: 28px; }
+      .page-wrap { display: flex; flex-direction: column; min-height: unset; }
+      .right-side { order: 1; padding: 32px 20px 40px; }
+      .left-side { order: 2; display: flex; border-left: none; border-top: 1px solid rgba(255,255,255,0.04); padding: 32px 20px 40px; }
+      .mobile-hero { display: none; }
       footer { padding: 20px; }
       .frame-left, .frame-right { display: none; }
     }
